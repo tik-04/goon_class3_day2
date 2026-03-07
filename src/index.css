@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth; /* เพิ่มบรรทัดนี้ */
+}
+
+body {
+  background-color: #f8fafc; /* เปลี่ยนสีพื้นหลังให้ดูละมุนขึ้น (Slate 50) */
+  color: #0f172a;
+}
