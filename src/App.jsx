@@ -110,173 +110,173 @@ INSERT INTO Student (ID, Name, Age, Course) VALUES
   const sqlDelete = `-- ลบข้อมูลนักศึกษาที่มี ID = 8\nDELETE FROM student\nWHERE id=8;`;
   const sqlQuery = `-- ค้นหาด้วยเงื่อนไข (Where)\nSELECT * FROM student\nWHERE name='kunmo';\n\n-- ใช้เงื่อนไขร่วม (AND, OR)\nSELECT * FROM student\nWHERE name='mokun'\nAND (id = 5 OR age > 22);\n\n-- เรียงลำดับข้อมูล (Order By) จากน้อยไปมาก\nSELECT * FROM student\nORDER BY age ASC;`;
 
-//   const sqlDetectiveCode = `-- ============================================
-// -- 🏰 SQL DETECTIVE: MURDER MYSTERY DATABASE
-// -- ============================================
+  const sqlDetectiveCode = `-- ============================================
+-- 🏰 SQL DETECTIVE: MURDER MYSTERY DATABASE
+-- ============================================
 
-// -- Drop old tables if exists (for fresh start)
-// DROP TABLE IF EXISTS crime_logs;
-// DROP TABLE IF EXISTS weapons;
-// DROP TABLE IF EXISTS rooms;
-// DROP TABLE IF EXISTS suspects;
+-- Drop old tables if exists (for fresh start)
+DROP TABLE IF EXISTS crime_logs;
+DROP TABLE IF EXISTS weapons;
+DROP TABLE IF EXISTS rooms;
+DROP TABLE IF EXISTS suspects;
 
-// -- ============================================
-// -- 📊 TABLE 1: SUSPECTS
-// -- ============================================
-// CREATE TABLE suspects (
-//     suspect_id INT PRIMARY KEY,
-//     suspect_name VARCHAR(100) NOT NULL,
-//     age INT NOT NULL,
-//     blood_type VARCHAR(5),
-//     occupation VARCHAR(100),
-//     has_money_motive VARCHAR(5),
-//     has_revenge_motive VARCHAR(5),
-//     has_secret_motive VARCHAR(5),
-//     alibi VARCHAR(255)
-// );
+-- ============================================
+-- 📊 TABLE 1: SUSPECTS
+-- ============================================
+CREATE TABLE suspects (
+    suspect_id INT PRIMARY KEY,
+    suspect_name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    blood_type VARCHAR(5),
+    occupation VARCHAR(100),
+    has_money_motive VARCHAR(5),
+    has_revenge_motive VARCHAR(5),
+    has_secret_motive VARCHAR(5),
+    alibi VARCHAR(255)
+);
 
-// INSERT INTO suspects (suspect_id, suspect_name, age, blood_type, occupation, has_money_motive, has_revenge_motive, has_secret_motive, alibi) VALUES
-// (1, 'John Smith', 35, 'AB', 'Chef', 'NO', 'YES', 'NO', 'Claims he was in kitchen all night'),
-// (2, 'Sarah Rich', 42, 'O', 'Businesswoman', 'YES', 'NO', 'NO', 'Claims she was on phone call'),
-// (3, 'Dr. Victor Wise', 38, 'AB', 'Doctor', 'NO', 'NO', 'YES', 'Claims he was in library'),
-// (4, 'Mary Beauty', 28, 'A', 'Model', 'NO', 'YES', 'NO', 'Claims she was in bedroom'),
-// (5, 'Robert Fair', 45, 'B', 'Lawyer', 'YES', 'NO', 'NO', 'Claims he was walking in garden'),
-// (6, 'Lisa Hard', 31, 'AB', 'Secretary', 'NO', 'YES', 'YES', 'Claims she was in office'),
-// (7, 'David Brave', 29, 'O', 'Bodyguard', 'NO', 'YES', 'NO', 'Claims he was patrolling'),
-// (8, 'Amy Artist', 33, 'A', 'Painter', 'NO', 'YES', 'NO', 'Claims she was painting in studio'),
-// (9, 'Steven Wealth', 50, 'AB', 'Investor', 'YES', 'NO', 'NO', 'Claims he was smoking cigars on balcony'),
-// (10, 'Nina Cute', 25, 'B', 'Waitress', 'NO', 'YES', 'NO', 'Claims she was cleaning kitchen'),
-// (11, 'Peter Justice', 40, 'O', 'Detective', 'YES', 'NO', 'NO', 'Claims he was investigating'),
-// (12, 'Susan Cold', 36, 'AB', 'Pharmacist', 'NO', 'NO', 'YES', 'Claims she was reading in guest room'),
-// (13, 'Charlie Lucky', 27, 'A', 'Programmer', 'YES', 'NO', 'NO', 'Claims he was gaming in living room'),
-// (14, 'Grace Bright', 32, 'B', 'Piano Teacher', 'NO', 'YES', 'NO', 'Claims she was practicing in music room'),
-// (15, 'Richard Rise', 48, 'O', 'Politician', 'NO', 'NO', 'YES', 'Claims he was on conference call'),
-// (16, 'Carol Kind', 26, 'AB', 'Nurse', 'NO', 'NO', 'YES', 'Claims she was caring for patient'),
-// (17, 'William Strong', 44, 'A', 'Military', 'NO', 'YES', 'NO', 'Claims he was cleaning weapons in display room'),
-// (18, 'Melissa Scent', 30, 'B', 'Journalist', 'NO', 'NO', 'YES', 'Claims she was writing article'),
-// (19, 'Thomas Grand', 37, 'O', 'Hotel Owner', 'YES', 'NO', 'NO', 'Claims he was checking wine in storage'),
-// (20, 'Patricia Elegant', 34, 'AB', 'Actress', 'NO', 'YES', 'NO', 'Claims she was reading script in lounge');
+INSERT INTO suspects (suspect_id, suspect_name, age, blood_type, occupation, has_money_motive, has_revenge_motive, has_secret_motive, alibi) VALUES
+(1, 'John Smith', 35, 'AB', 'Chef', 'NO', 'YES', 'NO', 'Claims he was in kitchen all night'),
+(2, 'Sarah Rich', 42, 'O', 'Businesswoman', 'YES', 'NO', 'NO', 'Claims she was on phone call'),
+(3, 'Dr. Victor Wise', 38, 'AB', 'Doctor', 'NO', 'NO', 'YES', 'Claims he was in library'),
+(4, 'Mary Beauty', 28, 'A', 'Model', 'NO', 'YES', 'NO', 'Claims she was in bedroom'),
+(5, 'Robert Fair', 45, 'B', 'Lawyer', 'YES', 'NO', 'NO', 'Claims he was walking in garden'),
+(6, 'Lisa Hard', 31, 'AB', 'Secretary', 'NO', 'YES', 'YES', 'Claims she was in office'),
+(7, 'David Brave', 29, 'O', 'Bodyguard', 'NO', 'YES', 'NO', 'Claims he was patrolling'),
+(8, 'Amy Artist', 33, 'A', 'Painter', 'NO', 'YES', 'NO', 'Claims she was painting in studio'),
+(9, 'Steven Wealth', 50, 'AB', 'Investor', 'YES', 'NO', 'NO', 'Claims he was smoking cigars on balcony'),
+(10, 'Nina Cute', 25, 'B', 'Waitress', 'NO', 'YES', 'NO', 'Claims she was cleaning kitchen'),
+(11, 'Peter Justice', 40, 'O', 'Detective', 'YES', 'NO', 'NO', 'Claims he was investigating'),
+(12, 'Susan Cold', 36, 'AB', 'Pharmacist', 'NO', 'NO', 'YES', 'Claims she was reading in guest room'),
+(13, 'Charlie Lucky', 27, 'A', 'Programmer', 'YES', 'NO', 'NO', 'Claims he was gaming in living room'),
+(14, 'Grace Bright', 32, 'B', 'Piano Teacher', 'NO', 'YES', 'NO', 'Claims she was practicing in music room'),
+(15, 'Richard Rise', 48, 'O', 'Politician', 'NO', 'NO', 'YES', 'Claims he was on conference call'),
+(16, 'Carol Kind', 26, 'AB', 'Nurse', 'NO', 'NO', 'YES', 'Claims she was caring for patient'),
+(17, 'William Strong', 44, 'A', 'Military', 'NO', 'YES', 'NO', 'Claims he was cleaning weapons in display room'),
+(18, 'Melissa Scent', 30, 'B', 'Journalist', 'NO', 'NO', 'YES', 'Claims she was writing article'),
+(19, 'Thomas Grand', 37, 'O', 'Hotel Owner', 'YES', 'NO', 'NO', 'Claims he was checking wine in storage'),
+(20, 'Patricia Elegant', 34, 'AB', 'Actress', 'NO', 'YES', 'NO', 'Claims she was reading script in lounge');
 
-// -- ============================================
-// -- 🚪 TABLE 2: ROOMS
-// -- ============================================
-// CREATE TABLE rooms (
-//     room_id INT PRIMARY KEY,
-//     room_name VARCHAR(100) NOT NULL,
-//     floor INT NOT NULL,
-//     has_secret_passage VARCHAR(5),
-//     is_crime_scene VARCHAR(5)
-// );
+-- ============================================
+-- 🚪 TABLE 2: ROOMS
+-- ============================================
+CREATE TABLE rooms (
+    room_id INT PRIMARY KEY,
+    room_name VARCHAR(100) NOT NULL,
+    floor INT NOT NULL,
+    has_secret_passage VARCHAR(5),
+    is_crime_scene VARCHAR(5)
+);
 
-// INSERT INTO rooms (room_id, room_name, floor, has_secret_passage, is_crime_scene) VALUES
-// (1, 'Kitchen', 1, 'NO', 'NO'),
-// (2, 'Living Room', 1, 'YES', 'NO'),
-// (3, 'Library', 1, 'YES', 'NO'),
-// (4, 'Dining Room', 1, 'NO', 'YES'),
-// (5, 'Office', 1, 'NO', 'NO'),
-// (6, 'Bedroom', 2, 'NO', 'NO'),
-// (7, 'Garden', 0, 'NO', 'NO'),
-// (8, 'Art Studio', 2, 'NO', 'NO'),
-// (9, 'Balcony', 2, 'NO', 'NO'),
-// (10, 'Music Room', 2, 'YES', 'NO'),
-// (11, 'Medical Room', 1, 'NO', 'NO'),
-// (12, 'Display Room', 1, 'NO', 'NO'),
-// (13, 'Storage', 0, 'YES', 'NO'),
-// (14, 'Lounge', 1, 'NO', 'NO'),
-// (15, 'Guest Room', 2, 'NO', 'NO'),
-// (16, 'Billiard Room', 1, 'NO', 'NO'),
-// (17, 'Smoking Room', 1, 'NO', 'NO'),
-// (18, 'Main Bathroom', 1, 'NO', 'NO'),
-// (19, 'Attic', 3, 'YES', 'NO'),
-// (20, 'Basement', -1, 'YES', 'NO');
+INSERT INTO rooms (room_id, room_name, floor, has_secret_passage, is_crime_scene) VALUES
+(1, 'Kitchen', 1, 'NO', 'NO'),
+(2, 'Living Room', 1, 'YES', 'NO'),
+(3, 'Library', 1, 'YES', 'NO'),
+(4, 'Dining Room', 1, 'NO', 'YES'),
+(5, 'Office', 1, 'NO', 'NO'),
+(6, 'Bedroom', 2, 'NO', 'NO'),
+(7, 'Garden', 0, 'NO', 'NO'),
+(8, 'Art Studio', 2, 'NO', 'NO'),
+(9, 'Balcony', 2, 'NO', 'NO'),
+(10, 'Music Room', 2, 'YES', 'NO'),
+(11, 'Medical Room', 1, 'NO', 'NO'),
+(12, 'Display Room', 1, 'NO', 'NO'),
+(13, 'Storage', 0, 'YES', 'NO'),
+(14, 'Lounge', 1, 'NO', 'NO'),
+(15, 'Guest Room', 2, 'NO', 'NO'),
+(16, 'Billiard Room', 1, 'NO', 'NO'),
+(17, 'Smoking Room', 1, 'NO', 'NO'),
+(18, 'Main Bathroom', 1, 'NO', 'NO'),
+(19, 'Attic', 3, 'YES', 'NO'),
+(20, 'Basement', -1, 'YES', 'NO');
 
-// -- ============================================
-// -- 🔪 TABLE 3: WEAPONS
-// -- ============================================
-// CREATE TABLE weapons (
-//     weapon_id INT PRIMARY KEY,
-//     weapon_name VARCHAR(100) NOT NULL,
-//     weapon_type VARCHAR(50),
-//     found_in_room_id INT,
-//     has_fingerprints VARCHAR(5),
-//     blood_type_on_weapon VARCHAR(5),
-//     is_murder_weapon VARCHAR(5),
-//     CONSTRAINT fk_weapon_room FOREIGN KEY (found_in_room_id) REFERENCES rooms(room_id)
-// );
+-- ============================================
+-- 🔪 TABLE 3: WEAPONS
+-- ============================================
+CREATE TABLE weapons (
+    weapon_id INT PRIMARY KEY,
+    weapon_name VARCHAR(100) NOT NULL,
+    weapon_type VARCHAR(50),
+    found_in_room_id INT,
+    has_fingerprints VARCHAR(5),
+    blood_type_on_weapon VARCHAR(5),
+    is_murder_weapon VARCHAR(5),
+    CONSTRAINT fk_weapon_room FOREIGN KEY (found_in_room_id) REFERENCES rooms(room_id)
+);
 
-// INSERT INTO weapons (weapon_id, weapon_name, weapon_type, found_in_room_id, has_fingerprints, blood_type_on_weapon, is_murder_weapon) VALUES
-// (1, 'Kitchen Knife', 'Sharp', 1, 'YES', 'AB', 'YES'),
-// (2, 'Rope', 'Strangulation', 3, 'NO', 'NULL', 'NO'),
-// (3, 'Baseball Bat', 'Blunt', 16, 'YES', 'O', 'NO'),
-// (4, 'Pistol', 'Gun', 5, 'YES', 'NULL', 'NO'),
-// (5, 'Wine Bottle', 'Blunt', 4, 'YES', 'AB', 'NO'),
-// (6, 'Pillow', 'Strangulation', 6, 'NO', 'NULL', 'NO'),
-// (7, 'Screwdriver', 'Sharp', 13, 'YES', 'A', 'NO'),
-// (8, 'Arsenic Poison', 'Poison', 11, 'NO', 'NULL', 'YES'),
-// (9, 'Hammer', 'Blunt', 20, 'YES', 'B', 'NO'),
-// (10, 'Garden Scissors', 'Sharp', 7, 'YES', 'AB', 'NO'),
-// (11, 'Cable', 'Strangulation', 2, 'NO', 'NULL', 'NO'),
-// (12, 'Sword', 'Sharp', 12, 'YES', 'O', 'NO'),
-// (13, 'Tripod', 'Blunt', 8, 'NO', 'A', 'NO'),
-// (14, 'Cyanide', 'Poison', 11, 'NO', 'NULL', 'NO'),
-// (15, 'Walking Stick', 'Blunt', 14, 'YES', 'NULL', 'NO'),
-// (16, 'Billiard Ball', 'Blunt', 16, 'NO', 'B', 'NO'),
-// (17, 'Glass Shard', 'Sharp', 18, 'YES', 'AB', 'NO'),
-// (18, 'Wire', 'Strangulation', 19, 'YES', 'O', 'NO'),
-// (19, 'Wrench', 'Blunt', 13, 'YES', 'AB', 'NO'),
-// (20, 'Plastic Bag', 'Strangulation', 1, 'NO', 'NULL', 'NO');
+INSERT INTO weapons (weapon_id, weapon_name, weapon_type, found_in_room_id, has_fingerprints, blood_type_on_weapon, is_murder_weapon) VALUES
+(1, 'Kitchen Knife', 'Sharp', 1, 'YES', 'AB', 'YES'),
+(2, 'Rope', 'Strangulation', 3, 'NO', 'NULL', 'NO'),
+(3, 'Baseball Bat', 'Blunt', 16, 'YES', 'O', 'NO'),
+(4, 'Pistol', 'Gun', 5, 'YES', 'NULL', 'NO'),
+(5, 'Wine Bottle', 'Blunt', 4, 'YES', 'AB', 'NO'),
+(6, 'Pillow', 'Strangulation', 6, 'NO', 'NULL', 'NO'),
+(7, 'Screwdriver', 'Sharp', 13, 'YES', 'A', 'NO'),
+(8, 'Arsenic Poison', 'Poison', 11, 'NO', 'NULL', 'YES'),
+(9, 'Hammer', 'Blunt', 20, 'YES', 'B', 'NO'),
+(10, 'Garden Scissors', 'Sharp', 7, 'YES', 'AB', 'NO'),
+(11, 'Cable', 'Strangulation', 2, 'NO', 'NULL', 'NO'),
+(12, 'Sword', 'Sharp', 12, 'YES', 'O', 'NO'),
+(13, 'Tripod', 'Blunt', 8, 'NO', 'A', 'NO'),
+(14, 'Cyanide', 'Poison', 11, 'NO', 'NULL', 'NO'),
+(15, 'Walking Stick', 'Blunt', 14, 'YES', 'NULL', 'NO'),
+(16, 'Billiard Ball', 'Blunt', 16, 'NO', 'B', 'NO'),
+(17, 'Glass Shard', 'Sharp', 18, 'YES', 'AB', 'NO'),
+(18, 'Wire', 'Strangulation', 19, 'YES', 'O', 'NO'),
+(19, 'Wrench', 'Blunt', 13, 'YES', 'AB', 'NO'),
+(20, 'Plastic Bag', 'Strangulation', 1, 'NO', 'NULL', 'NO');
 
-// -- ============================================
-// -- 📝 TABLE 4: CRIME_LOGS
-// -- ============================================
-// CREATE TABLE crime_logs (
-//     log_id INT PRIMARY KEY,
-//     suspect_id INT,
-//     room_id INT,
-//     entry_time VARCHAR(10) NOT NULL,
-//     exit_time VARCHAR(10),
-//     is_near_crime_time VARCHAR(5),
-//     FOREIGN KEY (suspect_id) REFERENCES suspects(suspect_id),
-//     FOREIGN KEY (room_id) REFERENCES rooms(room_id)
-// );
+-- ============================================
+-- 📝 TABLE 4: CRIME_LOGS
+-- ============================================
+CREATE TABLE crime_logs (
+    log_id INT PRIMARY KEY,
+    suspect_id INT,
+    room_id INT,
+    entry_time VARCHAR(10) NOT NULL,
+    exit_time VARCHAR(10),
+    is_near_crime_time VARCHAR(5),
+    FOREIGN KEY (suspect_id) REFERENCES suspects(suspect_id),
+    FOREIGN KEY (room_id) REFERENCES rooms(room_id)
+);
 
-// INSERT INTO crime_logs (log_id, suspect_id, room_id, entry_time, exit_time, is_near_crime_time) VALUES
-// (1, 1, 1, '18:00', '19:00', 'NO'),
-// (2, 2, 5, '17:00', '17:45', 'NO'),
-// (3, 3, 3, '16:30', '18:30', 'NO'),
-// (4, 4, 6, '19:00', '20:00', 'YES'),
-// (5, 5, 7, '18:30', '19:30', 'YES'),
-// (6, 6, 5, '17:30', '18:00', 'NO'),
-// (7, 7, 7, '19:00', '20:30', 'YES'),
-// (8, 8, 8, '15:00', '21:00', 'YES'),
-// (9, 9, 9, '18:00', '19:00', 'NO'),
-// (10, 10, 1, '18:30', '19:30', 'YES'),
-// (11, 11, 14, '17:00', '18:00', 'NO'),
-// (12, 12, 15, '16:00', '20:00', 'YES'),
-// (13, 13, 2, '19:30', '21:00', 'YES'),
-// (14, 14, 10, '17:00', '18:30', 'NO'),
-// (15, 15, 5, '16:00', '17:00', 'NO'),
-// (16, 16, 11, '18:00', '20:00', 'YES'),
-// (17, 17, 12, '18:00', '19:00', 'NO'),
-// (18, 18, 5, '19:00', '20:00', 'YES'),
-// (19, 19, 13, '17:30', '18:30', 'NO'),
-// (20, 20, 14, '18:00', '19:30', 'YES'),
-// (21, 1, 4, '19:15', '19:45', 'YES'),
-// (22, 3, 11, '19:00', '19:30', 'YES'),
-// (23, 6, 4, '19:30', '20:00', 'YES'),
-// (24, 9, 17, '19:15', '19:45', 'YES'),
-// (25, 12, 11, '19:45', '20:15', 'YES');
+INSERT INTO crime_logs (log_id, suspect_id, room_id, entry_time, exit_time, is_near_crime_time) VALUES
+(1, 1, 1, '18:00', '19:00', 'NO'),
+(2, 2, 5, '17:00', '17:45', 'NO'),
+(3, 3, 3, '16:30', '18:30', 'NO'),
+(4, 4, 6, '19:00', '20:00', 'YES'),
+(5, 5, 7, '18:30', '19:30', 'YES'),
+(6, 6, 5, '17:30', '18:00', 'NO'),
+(7, 7, 7, '19:00', '20:30', 'YES'),
+(8, 8, 8, '15:00', '21:00', 'YES'),
+(9, 9, 9, '18:00', '19:00', 'NO'),
+(10, 10, 1, '18:30', '19:30', 'YES'),
+(11, 11, 14, '17:00', '18:00', 'NO'),
+(12, 12, 15, '16:00', '20:00', 'YES'),
+(13, 13, 2, '19:30', '21:00', 'YES'),
+(14, 14, 10, '17:00', '18:30', 'NO'),
+(15, 15, 5, '16:00', '17:00', 'NO'),
+(16, 16, 11, '18:00', '20:00', 'YES'),
+(17, 17, 12, '18:00', '19:00', 'NO'),
+(18, 18, 5, '19:00', '20:00', 'YES'),
+(19, 19, 13, '17:30', '18:30', 'NO'),
+(20, 20, 14, '18:00', '19:30', 'YES'),
+(21, 1, 4, '19:15', '19:45', 'YES'),
+(22, 3, 11, '19:00', '19:30', 'YES'),
+(23, 6, 4, '19:30', '20:00', 'YES'),
+(24, 9, 17, '19:15', '19:45', 'YES'),
+(25, 12, 11, '19:45', '20:15', 'YES');
 
-// -- ============================================
-// -- ✅ Verify all data created
-// -- ============================================
-// SELECT 'Suspects' AS TableName, COUNT(*) AS RecordCount FROM suspects
-// UNION ALL
-// SELECT 'Rooms', COUNT(*) FROM rooms
-// UNION ALL
-// SELECT 'Weapons', COUNT(*) FROM weapons
-// UNION ALL
-// SELECT 'Crime Logs', COUNT(*) FROM crime_logs;`;
+-- ============================================
+-- ✅ Verify all data created
+-- ============================================
+SELECT 'Suspects' AS TableName, COUNT(*) AS RecordCount FROM suspects
+UNION ALL
+SELECT 'Rooms', COUNT(*) FROM rooms
+UNION ALL
+SELECT 'Weapons', COUNT(*) FROM weapons
+UNION ALL
+SELECT 'Crime Logs', COUNT(*) FROM crime_logs;`;
 
   return (
     <div className="min-h-screen selection:bg-blue-500/30 selection:text-blue-900 pb-20 overflow-x-hidden">
@@ -395,7 +395,7 @@ INSERT INTO Student (ID, Name, Age, Course) VALUES
             </div>
           </section>
           
-          {/* {!showDetectiveGame && (
+          {!showDetectiveGame && (
             <div className="text-center py-20 relative">
               <button
                 onClick={unlockGame}
@@ -444,7 +444,7 @@ INSERT INTO Student (ID, Name, Age, Course) VALUES
                 </div>
               </div>
             </section>
-          )} */}
+          )}
 
         </main>
       </div>
